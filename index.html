@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <meta
+      name="description"
+      content="Simple Calculator for daily calculations"
+    />
+
+    <link rel="shortcut icon" href="assets/icon.png" type="png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="calcIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L64 0zM96 64l192 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L96 160c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32zm32 160a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zM96 352a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM64 416c0-17.7 14.3-32 32-32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-96 0c-17.7 0-32-14.3-32-32zM192 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm32 64a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zm64-64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm32 64a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zM288 448a32 32 0 1 1 0-64 32 32 0 1 1 0 64z"
+          />
+        </svg>
+        <div class="title">Calculator</div>
+      </div>
+      <div class="menuIconCnt">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+          />
+        </svg>
+      </div>
+    </header>
+    <div class="menuNavBar"></div>
+    <section class="calcSection">
+      <div class="calculatorCnt">
+        <div class="displayContainer">
+          <input type="text" class="inputDisplay" />
+          <div class="autoClaculatedValueDisplayer"></div>
+        </div>
+        <div class="buttonsContainer">
+          <!--  -->
+
+          <button class="buttonClass otherBtns" id="idAllClear">AC</button>
+          <button class="buttonClass otherBtns deleteBtnClass" id="delete">
+            DEL
+          </button>
+          <button class="buttonClass otherBtns" id="%">%</button>
+          <button class="buttonClass operator fontSize3em" id="/">÷</button>
+
+          <button class="buttonClass" id="7">7</button>
+          <button class="buttonClass" id="8">8</button>
+          <button class="buttonClass" id="9">9</button>
+          <button class="buttonClass operator" id="*">X</button>
+
+          <button class="buttonClass" id="4">4</button>
+          <button class="buttonClass" id="5">5</button>
+          <button class="buttonClass" id="6">6</button>
+          <button class="buttonClass operator fontSize3em" id="-">-</button>
+
+          <button class="buttonClass" id="1">1</button>
+          <button class="buttonClass" id="2">2</button>
+          <button class="buttonClass" id="3">3</button>
+          <button class="buttonClass operator" id="+">+</button>
+
+          <button class="buttonClass zeroBtn" id="0">0</button>
+          <button class="buttonClass" id=".">.</button>
+          <button class="buttonClass operator fontSize3em" id="=">=</button>
+          <!--  -->
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+      //function to make new input visible on the screen
+      function inputDisplayToRight() {
+        inputDisplay.scrollLeft = inputDisplay.scrollWidth;
+      }
+
+      //function to make the text smaller if exceeds 11 characters
+      function equationFontSize(equationLength) {
+        if (equationLength >= 11) {
+          inputDisplay.style.fontSize = ".75em";
+        } else {
+          inputDisplay.style.fontSize = "1em";
+        }
+      }
+    </script>
+    <!-- MENUBARSCRIPT -->
+    <script>
+      let menuIcon = document.querySelector(".menuIconCnt");
+      let menuBarCnt = document.querySelector(".menuNavBar");
+      let calcSection = document.querySelector(".calcSection");
+
+      menuIcon.addEventListener("click", (e) => {
+        menuBarCnt.style.transform = "translate(0)";
+        calcSection.setAttribute("class", "filterBlur");
+        hideButtonsFunction();
+
+        e.stopPropagation();
+      });
+
+      // Close the sidebar when clicking outside the menuBarCnt
+      document.addEventListener("click", (e) => {
+        if (!menuBarCnt.contains(e.target) && !menuIcon.contains(e.target)) {
+          menuBarCnt.style.transform = "translate(var(--navBarWidth))";
+          calcSection.setAttribute("class", "calcSection");
+          calcSection.style.background = "var(--colorBody)";
+
+          showButtonsFunction();
+        }
+      });
+    </script>
+  </body>
+</html>
