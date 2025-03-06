@@ -1,0 +1,39 @@
+{
+  "name": "Calculator",
+  "short_name": "Calc",
+  "description": "A simple and efficient basic calculator for quick arithmetic operations. Perform addition, subtraction, multiplication, division, and more with ease.",
+  "version": "1.0",
+  "icons": [
+    {
+      "src": "/assets/calculator_icon_128px.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/calculator_icon_512px.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000",
+  "theme_color": "#000",
+  "orientation": "portrait",
+  "scope": "./",
+  "shortcuts": [
+    {
+      "name": "Open Calculator",
+      "short_name": "Open",
+      "description": "Quickly open the calculator",
+      "url": "/index.html",
+      "icons": [
+        {
+          "src": "/assets/calculator_icon_128px.png",
+          "sizes": "128x128",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

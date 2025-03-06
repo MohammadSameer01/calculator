@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  -->
+    <title>Online Basic Calculator - Fast & Easy Arithmetic Operations</title>
+    <meta
+      name="description"
+      content="A simple and efficient basic calculator for quick arithmetic operations. Perform addition, subtraction, multiplication, division, and more with ease."
+    />
+    <meta name="theme-color" content="#000" />
+    <link rel="icon" type="png" href="assets/calculator_icon_512px.png" />
+    <!--  -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="iconsCnt">
+        <div class="historyIcon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9L0 168c0 13.3 10.7 24 24 24l110.1 0c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24l0 104c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65 0-94.1c0-13.3-10.7-24-24-24z"
+            />
+          </svg>
+        </div>
+      </div>
+    </header>
+    <!--  -->
+    <section class="calculatorSection">
+      <div class="calculatorContainer">
+        <div class="inputCnt">
+          <input disabled type="text" class="currentExpressionContainer" />
+          <div class="resultContainer"></div>
+        </div>
+        <div class="buttonsCnt">
+          <div class="basicButton">
+            <div class="button otherButton" data-value="AC"></div>
+            <div class="button otherButton" data-value="DEL"></div>
+            <div
+              class="button otherButton parenthesesButton"
+              data-value="("
+            ></div>
+            <div class="button operatorButton" data-value="÷"></div>
+            <div class="button" data-value="7"></div>
+            <div class="button" data-value="8"></div>
+            <div class="button" data-value="9"></div>
+            <div class="button operatorButton" data-value="×"></div>
+            <div class="button" data-value="4"></div>
+            <div class="button" data-value="5"></div>
+            <div class="button" data-value="6"></div>
+            <div class="button operatorButton" data-value="-"></div>
+            <div class="button" data-value="1"></div>
+            <div class="button" data-value="2"></div>
+            <div class="button" data-value="3"></div>
+            <div class="button operatorButton" data-value="+"></div>
+            <div class="button zeroButton" data-value="0"></div>
+            <div class="button" data-value="."></div>
+            <div class="button operatorButton" data-value="="></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="historySection">
+      <h1 class="visually-hidden">Calculator</h1>
+      <h2>History</h2>
+      <div class="closeHistoryCnt">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+          <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+          />
+        </svg>
+      </div>
+      <div class="historyContainer"></div>
+    </section>
+    <!--  -->
+    <p class="visually-hidden">
+      Use this simple and free online calculator for quick arithmetic
+      operations, including addition, subtraction, multiplication, and division.
+    </p>
+    <!--  -->
+    <script src="script.js"></script>
+  </body>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Basic Calculator",
+      "description": "Perform quick and easy arithmetic calculations online. Includes addition, subtraction, multiplication, division, and more.",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "All"
+    }
+  </script>
+</html>
