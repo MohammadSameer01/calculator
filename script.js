@@ -9,6 +9,7 @@ const operatorsArray = ["+", "-", "*", "/", "×", "÷"];
 //
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
+    navigator.vibrate(25);
     let clickedInput = button.getAttribute("data-value");
     resultContainer.innerText = "";
     if (clickedInput == "=") {
