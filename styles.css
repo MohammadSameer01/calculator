@@ -15,7 +15,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--ffPoppins);
-  /* outline: 1px solid; */
 }
 /*  */
 /*  */
@@ -93,6 +92,14 @@ body {
   border-radius: 50%;
   background: var(--numbersBgColor);
   font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+}
+.basicButton .button:active {
+  transition: 0.1s ease;
+  opacity: 0.75;
 }
 .zeroButton {
   grid-column: 1/3;
@@ -105,6 +112,7 @@ body {
   background: var(--otherButtonsColor) !important;
   color: initial;
 }
+
 .operatorButton {
   background: var(--operatorsBgColor) !important;
   font-size: 1.5em;
@@ -118,7 +126,7 @@ body {
   height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(24px);
-  transition: 0.3s ease;
+  transition: 0.2s ease;
   transform: translateX(-100%);
   padding: 18px;
 }
@@ -136,6 +144,9 @@ body {
   margin: 16px 0;
   padding: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.historyDiv:nth-last-child(1) {
+  margin-bottom: 48px;
 }
 .historyExpression {
   color: #aaaaaa;
@@ -155,6 +166,8 @@ body {
   align-items: center;
   top: 24px;
   right: 16px;
+  background: gray;
+  border-radius: 50%;
 }
 
 /*  */
@@ -175,4 +188,49 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+.no-historyClass {
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clearHistoryCnt {
+  position: absolute;
+  background: red;
+  padding: 6px 24px;
+  right: 24px;
+  transform: translateY(-36px);
+  border-radius: 6px;
+  cursor: pointer;
+}
+@media (min-width: 720px) {
+  .historySection {
+    max-width: 45%;
+    background: linear-gradient(to right, rgb(30, 30, 30), rgb(0, 0, 0));
+  }
+  .historySection::-webkit-scrollbar {
+    display: none;
+  }
+
+  .closeHistoryCnt {
+    display: none;
+  }
+  .calculatorSection {
+    max-width: 55%;
+    margin-left: auto;
+  }
+  .basicButton {
+    gap: 4px;
+  }
+  .basicButton .button {
+    aspect-ratio: unset;
+    border-radius: 6px;
+    height: 65px;
+  }
+}
+@media (max-height: 480px) {
+  * {
+    display: none;
+  }
 }
