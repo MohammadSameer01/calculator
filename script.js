@@ -7,17 +7,25 @@ const buttons = document.querySelectorAll(".button");
 const operatorsArray = ["+", "-", "*", "/", "×", "÷"];
 //
 //
+let addToHistory = false;
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    navigator.vibrate(25);
     let clickedInput = button.getAttribute("data-value");
     resultContainer.innerText = "";
+    if (navigator) {
+      navigator.vibrate(15);
+    }
     if (clickedInput == "=") {
       evalCurrentExpression();
-      pushIntoHistoryArray();
+      if (addToHistory === true) {
+        pushIntoHistoryArray();
+        addToHistory = false;
+        checkHistory();
+      }
     } else if (clickedInput == "AC") {
       clearCalculator();
     } else if (clickedInput == "DEL") {
+      addToHistory = true;
       currentExpressionContainer.value = currentExpressionContainer.value.slice(
         0,
         -1
@@ -25,6 +33,7 @@ buttons.forEach((button) => {
     } else if (clickedInput === "(" || clickedInput === ")") {
       handleParentheses();
     } else {
+      addToHistory = true;
       let lastClickedInput = currentExpressionContainer.value.slice(-1);
       if (operatorsArray.includes(clickedInput)) {
         if (operatorsArray.includes(lastClickedInput)) {
@@ -133,7 +142,6 @@ function clearCalculator() {
   resultContainer.innerText = "";
   updateParenthesesButton("(");
 }
-
 function pushIntoHistoryArray() {
   let expression = currentExpressionContainer.value;
   let result = resultContainer.innerText;
@@ -204,3 +212,47 @@ function toggleHistoryBar() {
 document
   .querySelector(".closeHistoryCnt")
   .addEventListener("click", toggleHistoryBar);
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth >= 720) {
+    toggleHistoryBar();
+    let equalToBtn = document.querySelectorAll(".operatorButton");
+    equalToBtn.forEach((btn) => {
+      if (btn.innerText == "=") {
+        btn.addEventListener("click", () => {
+          updateHistoryContainer();
+        });
+      }
+    });
+  }
+});
+
+function checkHistory() {
+  const historyContainer = document.querySelector(".historyContainer"); // Ensure this matches your HTML
+
+  // Check if "historyArray" key exists in localStorage
+  if (!localStorage.getItem("historyArray")) {
+    historyContainer.innerHTML =
+      "<div class='no-historyClass'><h1>Start calculating to see history here</h1></div>";
+    document.querySelector(".clearHistoryCnt").style.display = "none";
+  } else {
+    document.querySelector(".clearHistoryCnt").style.display = "";
+  }
+}
+// Run function when page loads
+document.addEventListener("DOMContentLoaded", checkHistory);
+
+document.querySelector(".clearHistoryCnt").addEventListener("click", () => {
+  document.querySelectorAll(".historyDiv").forEach((div) => {
+    div.style.transition = `.3s ease`;
+    div.style.transform = `scale(0)`;
+  });
+  setTimeout(() => {
+    localStorage.clear();
+    updateHistoryContainer();
+    if (window.innerWidth < 720) {
+      toggleHistoryBar();
+    }
+    checkHistory();
+  }, 300);
+});
